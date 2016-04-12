@@ -51,26 +51,6 @@ public class Customer {
 	
 	
 	
-	public class Order{
-		private int Order_id;
-		private String Customer_Name;
-		public Order() {}
-		public Order(String name) {
-		this.Customer_Name = name;
-		}
-		public int getId() {
-		return Order_id;
-		}
-		public void setId( int id ) {
-		this.Order_id = id;
-		}
-		public String getName() {
-		return Customer_Name;
-		}
-		public void setName( String name ) {
-		this.Customer_Name = name;
-		}
-		}
 	
 	public static void main(String[] args) {
 		
