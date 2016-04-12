@@ -39,8 +39,8 @@ public class Project {
 		           stmt.executeUpdate("INSERT INTO Customer " + "VALUES (510, 'Cheese Burger', 'Hola', 19120212)");
 		           
 		  	  // deleting data from the database
-		           stmt = (Statement) conn.createStatement();
-		           stmt.executeUpdate("DELETE FROM Customer WHERE Customer_ID = 558841");
+		        //   stmt = (Statement) conn.createStatement();
+		         //  stmt.executeUpdate("DELETE FROM Customer WHERE Customer_ID = 558841");
 
 		        
 		         
