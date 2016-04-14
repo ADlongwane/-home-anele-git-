@@ -39,8 +39,8 @@ public class Project {
 		           stmt.executeUpdate("INSERT INTO Customer " + "VALUES (510, 'Cheese Burger', 'Hola', 19120212)");
 		           
 		  	  // deleting data from the database
-		        //   stmt = (Statement) conn.createStatement();
-		         //  stmt.executeUpdate("DELETE FROM Customer WHERE Customer_ID = 558841");
+		           stmt = (Statement) conn.createStatement();
+		           stmt.executeUpdate("DELETE FROM Customer WHERE Customer_ID = 558841");
 
 		        
 		         
@@ -54,10 +54,10 @@ public class Project {
 		           stmt = (Statement) conn.createStatement();
 		           stmt.executeUpdate("UPDATE Customer SET Customer_Name = 'Anel', Customer_Surname = 'Lee' WHERE Customer_ID = 2");
 		           
-		            Retrieving data from the database
-			        String sql1 = "SELECT * FROM Customer Where Customer_ID LIKE 79120212)";
+		           // Retrieving data from the database
+			       // String sql1 = "SELECT * FROM Customer Where Customer_ID LIKE 79120212)";
 			        				
-			          ResultSet rs1 = stmt.executeQuery(sql);
+			      //     ResultSet rs1 = stmt.executeQuery(sql);
 			                
 		       
 		           
