@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Top Dog</title>
+    </head>
+    <ul class="topnav" id="myTopnav">
+                <li><a class="active" href="http://localhost:8080/Web/index.htm">Home</a></li>
+                <li><a href="http://localhost:8080/Web/faces/order1/Create.xhtml">Order</a></li>
+                <li><a href="http://localhost:8080/Web/faces/register/Create.xhtml">Customer</a></li>
+                <li><a href="http://localhost:8080/Web/faces/products/List.xhtml">Product</a></li>
+                 <li class="icon">
+                    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+                </li>
+            </ul>
+    <h:body>
+            <h:outputText value="#{bundle.ViewLoginTitle}"></h:outputText>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLoginLabel_username}"/>
+                    <h:outputText value="#{loginController.selected.username}" title="#{bundle.ViewLoginTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewLoginLabel_password}"/>
+                    <h:outputText value="#{loginController.selected.password}" title="#{bundle.ViewLoginTitle_password}"/>
+                </h:panelGrid>
+                <br />
+              
+                <br />
+                <br />
+   
+                <br />
+                <h:commandButton action="#{loginController.prepareCreate}" value="#{bundle.ViewLoginCreateLink}" />
+                <br />
+      
+                <br />
+                <br />
+               
+
+            </h:form>
+     </h:body>
+</html>

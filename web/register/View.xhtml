@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewRegisterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewRegisterLabel_customerID}"/>
+                    <h:outputText value="#{registerController.selected.customerID}" title="#{bundle.ViewRegisterTitle_customerID}"/>
+                    <h:outputText value="#{bundle.ViewRegisterLabel_name}"/>
+                    <h:outputText value="#{registerController.selected.name}" title="#{bundle.ViewRegisterTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewRegisterLabel_surname}"/>
+                    <h:outputText value="#{registerController.selected.surname}" title="#{bundle.ViewRegisterTitle_surname}"/>
+                    <h:outputText value="#{bundle.ViewRegisterLabel_email}"/>
+                    <h:outputText value="#{registerController.selected.email}" title="#{bundle.ViewRegisterTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewRegisterLabel_city}"/>
+                    <h:outputText value="#{registerController.selected.city}" title="#{bundle.ViewRegisterTitle_city}"/>
+                    <h:outputText value="#{bundle.ViewRegisterLabel_region}"/>
+                    <h:outputText value="#{registerController.selected.region}" title="#{bundle.ViewRegisterTitle_region}"/>
+                    <h:outputText value="#{bundle.ViewRegisterLabel_timeStamp}"/>
+                    <h:outputText value="#{registerController.selected.timeStamp}" title="#{bundle.ViewRegisterTitle_timeStamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+        
+                <br />
+                <br />
+         
+                <br />
+                <h:commandLink action="#{registerController.prepareCreate}" value="#{bundle.ViewRegisterCreateLink}" />
+                <br />
+                <h:commandLink action="#{registerController.prepareList}" value="#{bundle.ViewRegisterShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewRegisterIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRegisterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_customerID}" for="customerID" />
+                    <h:inputText id="customerID" value="#{registerController.selected.customerID}" title="#{bundle.EditRegisterTitle_customerID}" required="true" requiredMessage="#{bundle.EditRegisterRequiredMessage_customerID}"/>
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{registerController.selected.name}" title="#{bundle.EditRegisterTitle_name}" required="true" requiredMessage="#{bundle.EditRegisterRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_surname}" for="surname" />
+                    <h:inputText id="surname" value="#{registerController.selected.surname}" title="#{bundle.EditRegisterTitle_surname}" required="true" requiredMessage="#{bundle.EditRegisterRequiredMessage_surname}"/>
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{registerController.selected.email}" title="#{bundle.EditRegisterTitle_email}" required="true" requiredMessage="#{bundle.EditRegisterRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{registerController.selected.city}" title="#{bundle.EditRegisterTitle_city}" required="true" requiredMessage="#{bundle.EditRegisterRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_region}" for="region" />
+                    <h:inputText id="region" value="#{registerController.selected.region}" title="#{bundle.EditRegisterTitle_region}" required="true" requiredMessage="#{bundle.EditRegisterRequiredMessage_region}"/>
+                    <h:outputLabel value="#{bundle.EditRegisterLabel_timeStamp}" for="timeStamp" />
+                    <h:inputText id="timeStamp" value="#{registerController.selected.timeStamp}" title="#{bundle.EditRegisterTitle_timeStamp}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+           
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditRegisterViewLink}"/>
+                <br />
+                <h:commandLink action="#{registerController.prepareList}" value="#{bundle.EditRegisterShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditRegisterIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

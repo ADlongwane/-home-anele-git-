@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrder1Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrder1Label_orderID}"/>
+                    <h:outputText value="#{order1Controller.selected.orderID}" title="#{bundle.ViewOrder1Title_orderID}"/>
+                    <h:outputText value="#{bundle.ViewOrder1Label_customerID}"/>
+                    <h:outputText value="#{order1Controller.selected.customerID}" title="#{bundle.ViewOrder1Title_customerID}"/>
+                    <h:outputText value="#{bundle.ViewOrder1Label_customerName}"/>
+                    <h:outputText value="#{order1Controller.selected.customerName}" title="#{bundle.ViewOrder1Title_customerName}"/>
+                    <h:outputText value="#{bundle.ViewOrder1Label_mealType}"/>
+                    <h:outputText value="#{order1Controller.selected.mealType}" title="#{bundle.ViewOrder1Title_mealType}"/>
+                    <h:outputText value="#{bundle.ViewOrder1Label_drinks}"/>
+                    <h:outputText value="#{order1Controller.selected.drinks}" title="#{bundle.ViewOrder1Title_drinks}"/>
+                    <h:outputText value="#{bundle.ViewOrder1Label_extras}"/>
+                    <h:outputText value="#{order1Controller.selected.extras}" title="#{bundle.ViewOrder1Title_extras}"/>
+                    <h:outputText value="#{bundle.ViewOrder1Label_employeeID}"/>
+                    <h:outputText value="#{order1Controller.selected.employeeID}" title="#{bundle.ViewOrder1Title_employeeID}"/>
+                </h:panelGrid>
+                <br />
+               
+                <br />
+                <br />
+             
+                <br />
+                <h:commandLink action="#{order1Controller.prepareCreate}" value="#{bundle.ViewOrder1CreateLink}" />
+                <br />
+                <h:commandLink action="#{order1Controller.prepareList}" value="#{bundle.ViewOrder1ShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOrder1IndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

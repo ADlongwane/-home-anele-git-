@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOrder1Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+            <ul class="topnav" id="myTopnav">
+                <li><a class="active" href="http://localhost:8080/Web/index.htm">Home</a></li>
+                <li><a href="http://localhost:8080/Web/faces/order1/Create.xhtml">Order</a></li>
+                <li><a href="http://localhost:8080/Web/faces/register/Create.xhtml">Customer</a></li>
+                <li><a href="http://localhost:8080/Web/faces/products/List.xhtml">Product</a></li>
+                 <li class="icon">
+                    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+                </li>
+            </ul>
+                
+                  <br />
+                  <br />
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_orderID}" for="orderID" />
+                    <h:inputText id="orderID" value="#{order1Controller.selected.orderID}" title="#{bundle.CreateOrder1Title_orderID}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_orderID}"/>
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_customerID}" for="customerID" />
+                    <h:inputText id="customerID" value="#{order1Controller.selected.customerID}" title="#{bundle.CreateOrder1Title_customerID}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_customerID}"/>
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_customerName}" for="customerName" />
+                    <h:inputText id="customerName" value="#{order1Controller.selected.customerName}" title="#{bundle.CreateOrder1Title_customerName}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_customerName}"/>
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_mealType}" for="mealType" />
+                    <h:inputText id="mealType" value="#{order1Controller.selected.mealType}" title="#{bundle.CreateOrder1Title_mealType}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_mealType}"/>
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_drinks}" for="drinks" />
+                    <h:inputText id="drinks" value="#{order1Controller.selected.drinks}" title="#{bundle.CreateOrder1Title_drinks}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_drinks}"/>
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_extras}" for="extras" />
+                    <h:inputText id="extras" value="#{order1Controller.selected.extras}" title="#{bundle.CreateOrder1Title_extras}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_extras}"/>
+                    <h:outputLabel value="#{bundle.CreateOrder1Label_employeeID}" for="employeeID" />
+                    <h:inputText id="employeeID" value="#{order1Controller.selected.employeeID}" title="#{bundle.CreateOrder1Title_employeeID}" required="true" requiredMessage="#{bundle.CreateOrder1RequiredMessage_employeeID}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{order1Controller.create}" value="#{bundle.CreateOrder1SaveLink}" />
+                <br />
+                <br />
+      
+                <br />
+                <br />
+ 
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

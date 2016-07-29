@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_productID}" for="productID" />
+                    <h:inputText id="productID" value="#{productsController.selected.productID}" title="#{bundle.CreateProductsTitle_productID}" required="true" requiredMessage="#{bundle.CreateProductsRequiredMessage_productID}"/>
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_productName}" for="productName" />
+                    <h:inputText id="productName" value="#{productsController.selected.productName}" title="#{bundle.CreateProductsTitle_productName}" required="true" requiredMessage="#{bundle.CreateProductsRequiredMessage_productName}"/>
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_unitPrice}" for="unitPrice" />
+                    <h:inputText id="unitPrice" value="#{productsController.selected.unitPrice}" title="#{bundle.CreateProductsTitle_unitPrice}" required="true" requiredMessage="#{bundle.CreateProductsRequiredMessage_unitPrice}"/>
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_quantity}" for="quantity" />
+                    <h:inputText id="quantity" value="#{productsController.selected.quantity}" title="#{bundle.CreateProductsTitle_quantity}" required="true" requiredMessage="#{bundle.CreateProductsRequiredMessage_quantity}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productsController.create}" value="#{bundle.CreateProductsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{productsController.prepareList}" value="#{bundle.CreateProductsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProductsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

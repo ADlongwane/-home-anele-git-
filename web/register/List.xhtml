@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRegisterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRegisterEmpty}" rendered="#{registerController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{registerController.items.rowCount > 0}">
+                    <h:outputText value="#{registerController.pagination.pageFirstItem + 1}..#{registerController.pagination.pageLastItem + 1}/#{registerController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{registerController.previous}" value="#{bundle.Previous} #{registerController.pagination.pageSize}" rendered="#{registerController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{registerController.next}" value="#{bundle.Next} #{registerController.pagination.pageSize}" rendered="#{registerController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{registerController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_customerID}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.customerID}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_surname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.surname}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_city}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.city}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_region}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.region}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRegisterTitle_timeStamp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.timeStamp}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{registerController.prepareView}" value="#{bundle.ListRegisterViewLink}"/>
+                            <h:outputText value=" "/>
+                 
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{registerController.prepareCreate}" value="#{bundle.ListRegisterCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRegisterIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
